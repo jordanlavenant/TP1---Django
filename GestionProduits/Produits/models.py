@@ -1,7 +1,7 @@
 import datetime
 from django.db import models
 
-class ProductStatus(models.Model):
+class Status(models.Model):
   numero = models.AutoField(primary_key=True)
   libelle = models.CharField(max_length=100)
 
@@ -13,7 +13,7 @@ class Product(models.Model):
   code = models.IntegerField()
   price = models.IntegerField(null=True)
   date = models.DateField(default=datetime.date.today)
-  status = models.ForeignKey(ProductStatus, on_delete=models.CASCADE)
+  status = models.ForeignKey(Status, on_delete=models.CASCADE, null=True, blank=True)
 
   def __str__(self):
     return "{0} [{1}]".format(self.name, self.code)
