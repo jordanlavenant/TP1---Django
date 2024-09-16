@@ -3,9 +3,10 @@ from .models import *
 
 # Create your views here.
 def products_list(request):
-    prdcts = Product.objects.all()
+    products = Product.objects.all()
+    print(products)
     return render(
         request,
         'products.html',
-        {'products': prdcts}
+        {'products': products}
     )
